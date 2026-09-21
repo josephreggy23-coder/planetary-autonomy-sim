@@ -29,6 +29,7 @@ python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev]"
 python -m planetary_autonomy_sim.sim --size 32 --seed 5
+python -m planetary_autonomy_sim.report --size 64 --seed 5
 pytest
 ```
 
@@ -59,6 +60,26 @@ Example output from the verified run:
 
 These values come from `python -m planetary_autonomy_sim.sim --size 32 --seed 5`. The baseline plans a lowest-cost route across the generated terrain; it is a deliberately compact stand-in for the planned D*-Lite and MPPI stack.
 
+## Reproducible benchmark results
+
+The committed benchmark is an actual run of the planner on a `64 × 64` seeded terrain containing `4,096` cells. The optimized route spans `127` cells (`6.30 m`) with a cumulative mobility cost of `376.458`. Compared with the fixed edge-route baseline, the planner reduced cost by `63.12%`. Mean roughness along the chosen route was `0.2466`, versus `0.5005` across the complete terrain.
+
+![Risk heatmap and planned rover route](results/demo/terrain_route.svg)
+
+![Terrain roughness along the planned route](results/demo/route_roughness.svg)
+
+The complete benchmark is inspectable rather than baked into an opaque image:
+
+- [`terrain.csv`](results/demo/terrain.csv): all 4,096 cells, roughness values, costs, and route membership
+- [`route.csv`](results/demo/route.csv): ordered 127-cell traverse with local risk values
+- [`summary.json`](results/demo/summary.json): benchmark settings and computed performance metrics
+
+Regenerate every artifact with:
+
+```bash
+python -m planetary_autonomy_sim.report --size 64 --seed 5 --output results/demo
+```
+
 ## What is implemented today
 
 | Layer | MVP implementation | Next research integration |
@@ -88,12 +109,14 @@ The planner explores four-connected neighbors with a priority queue and reconstr
 | `planner.py` | Priority-queue cost search and route reconstruction |
 | `science.py` | Science target representation and value-per-cost selection |
 | `sim.py` | End-to-end traverse, CLI parsing, and summary metrics |
+| `report.py` | Terrain/route export, benchmark metrics, and SVG visualization |
 | `tests/test_sim.py` | Seed reproducibility, path existence, and positive-cost checks |
 
 ## Validation and reproducibility
 
 ```bash
 python -m planetary_autonomy_sim.sim --size 32 --seed 5
+python -m planetary_autonomy_sim.report --size 64 --seed 5
 python -m compileall -q src
 pytest
 ```
