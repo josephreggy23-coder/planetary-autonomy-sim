@@ -1,0 +1,12 @@
+{
+  "seed": 5,
+  "grid_size": 64,
+  "terrain_cells": 4096,
+  "route_cells": 127,
+  "distance_m": 6.3,
+  "route_cost": 376.458,
+  "edge_baseline_cost": 1020.804,
+  "cost_reduction_percent": 63.12,
+  "mean_terrain_roughness": 0.5005,
+  "mean_route_roughness": 0.2466
+}
