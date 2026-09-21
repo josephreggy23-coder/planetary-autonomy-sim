@@ -21,4 +21,15 @@ pytest
 
 These values come from `python -m planetary_autonomy_sim.sim --size 32 --seed 5`. The baseline plans a lowest-cost route across the generated terrain; it is a deliberately compact stand-in for the planned D*-Lite and MPPI stack.
 
+## What is implemented today
+
+| Layer | MVP implementation | Next research integration |
+| --- | --- | --- |
+| Terrain | seeded 0–1 roughness grid with 5 cm cells | crater, dune, and rock-field priors |
+| Mobility | quadratic terrain-risk cost | slope, step, cohesion, and Bekker–Wong terms |
+| Planning | deterministic Dijkstra-style lowest-cost route | incremental D*-Lite + local MPPI |
+| Science | value-per-travel-cost target selector | spectral/textural anomaly detection |
+
+The current simulation favors clear, repeatable behavior over photorealism so that future perception, SLAM, and dynamics benchmarks have a stable baseline.
+
 The source layout keeps clear extension points for Open3D/PyBullet rendering, stereo perception, GTSAM SLAM, D*-Lite/MPPI control, and a Bekker–Wong terramechanics model.
