@@ -32,4 +32,14 @@ These values come from `python -m planetary_autonomy_sim.sim --size 32 --seed 5`
 
 The current simulation favors clear, repeatable behavior over photorealism so that future perception, SLAM, and dynamics benchmarks have a stable baseline.
 
+## Validation and reproducibility
+
+```bash
+python -m planetary_autonomy_sim.sim --size 32 --seed 5
+python -m compileall -q src
+pytest
+```
+
+`tests/test_sim.py` verifies repeatability for a seeded 16 x 16 traverse and confirms the planner returns a non-empty route with positive mobility cost. GitHub Actions runs the same test suite for every push and pull request.
+
 The source layout keeps clear extension points for Open3D/PyBullet rendering, stereo perception, GTSAM SLAM, D*-Lite/MPPI control, and a Bekker–Wong terramechanics model.
