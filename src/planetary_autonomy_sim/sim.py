@@ -9,7 +9,7 @@ from .terrain import generate
 def run(size: int, seed: int) -> dict:
     grid = generate(size, seed)
     path, cost = plan(grid, (0, 0), (size - 1, size - 1))
-    return {"distance_m": (len(path) - 1) * 0.05, "cells": len(path), "mobility_cost": round(cost, 2)}
+    return {"distance_m": round((len(path) - 1) * 0.05, 2), "cells": len(path), "mobility_cost": round(cost, 2)}
 
 
 def main() -> None:
