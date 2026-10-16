@@ -111,6 +111,7 @@ The planner explores four-connected neighbors with a priority queue and reconstr
 | `sim.py` | End-to-end traverse, CLI parsing, and summary metrics |
 | `report.py` | Terrain/route export, benchmark metrics, and SVG visualization |
 | `tests/test_sim.py` | Seed reproducibility, path existence, and positive-cost checks |
+| `tests/test_report.py` | Benchmark export writes route data and SVG charts |
 
 ## Validation and reproducibility
 
