@@ -16,3 +16,5 @@ htmlcov/
 Thumbs.db
 .idea/
 .vscode/
+.ruff_cache/
+.ipynb_checkpoints/
