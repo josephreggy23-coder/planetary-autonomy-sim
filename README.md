@@ -24,6 +24,8 @@ flowchart LR
 
 ## Quick start
 
+Requires Python 3.11 or newer.
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
