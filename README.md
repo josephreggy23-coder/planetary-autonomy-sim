@@ -54,7 +54,7 @@ Example output from the verified run:
 
 | Metric | Verified demo result |
 | --- | ---: |
-| Procedural terrain grid | 32 x 32 (1,024 cells) |
+| Procedural terrain grid | 32 × 32 (1,024 cells) |
 | Traverse path | 63 cells |
 | Simulated traverse distance | 3.10 m at 5 cm/cell |
 | Aggregate mobility cost | 187.77 |
@@ -124,7 +124,7 @@ python -m compileall -q src
 pytest
 ```
 
-`tests/test_sim.py` verifies repeatability for a seeded 16 x 16 traverse and confirms the planner returns a non-empty route with positive mobility cost. GitHub Actions runs the same test suite for every push and pull request.
+`tests/test_sim.py` verifies repeatability for a seeded 16 × 16 traverse and confirms the planner returns a non-empty route with positive mobility cost. GitHub Actions runs the same test suite for every push and pull request.
 
 ## Current limitations
 
