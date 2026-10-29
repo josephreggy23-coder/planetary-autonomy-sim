@@ -6,6 +6,11 @@ from .terrain import traversability
 
 
 def plan(grid: list[list[float]], start: tuple[int, int], goal: tuple[int, int]) -> tuple[list[tuple[int, int]], float]:
+    """Find the lowest-cost four-connected route from start to goal.
+
+    Returns the ordered path (start to goal) and its total cost, or an empty
+    path and infinite cost when the goal is unreachable.
+    """
     height, width = len(grid), len(grid[0])
     frontier = [(0.0, start)]
     cost = {start: 0.0}
