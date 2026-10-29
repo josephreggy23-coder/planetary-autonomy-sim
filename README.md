@@ -37,6 +37,8 @@ pytest
 
 On Windows PowerShell, activate the environment with `.venv\Scripts\Activate.ps1`.
 
+To run the demo in a container instead, use `docker compose up simulator`.
+
 ### Command-line options
 
 | Option | Default | Purpose |
