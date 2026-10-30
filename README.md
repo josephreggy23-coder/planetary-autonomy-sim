@@ -27,6 +27,8 @@ flowchart LR
 Requires Python 3.11 or newer.
 
 ```bash
+git clone https://github.com/josephreggy23-coder/planetary-autonomy-sim.git
+cd planetary-autonomy-sim
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev]"
