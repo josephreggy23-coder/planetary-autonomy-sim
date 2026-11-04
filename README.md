@@ -48,6 +48,8 @@ To run the demo in a container instead, use `docker compose up simulator`.
 | `--size` | `32` | Width and height of the square terrain grid |
 | `--seed` | `0` | Seed controlling the procedural roughness field |
 
+`planetary_autonomy_sim.report` accepts the same `--size` and `--seed` options (defaulting to `64` and `5`) plus `--output`, the directory for the exported CSV, JSON, and SVG files (default `results/demo`).
+
 Example output from the verified run:
 
 ```text
