@@ -54,6 +54,7 @@ def _profile_chart(grid: list[list[float]], path: list[tuple[int, int]]) -> str:
 
 
 def build_report(output_dir: Path, size: int = 64, seed: int = 5) -> dict:
+    """Plan a route on seeded terrain and write CSV, JSON, and SVG artifacts to ``output_dir``."""
     output_dir.mkdir(parents=True, exist_ok=True)
     grid = generate(size, seed)
     route, route_cost = plan(grid, (0, 0), (size - 1, size - 1))
@@ -94,6 +95,7 @@ def build_report(output_dir: Path, size: int = 64, seed: int = 5) -> dict:
 
 
 def main() -> None:
+    """Parse CLI arguments and generate the benchmark report."""
     parser = argparse.ArgumentParser(description="Generate rover benchmark data and charts.")
     parser.add_argument("--output", type=Path, default=Path("results/demo"))
     parser.add_argument("--size", type=int, default=64)
