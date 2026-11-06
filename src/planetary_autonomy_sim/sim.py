@@ -7,12 +7,14 @@ from .terrain import generate
 
 
 def run(size: int, seed: int) -> dict:
+    """Plan a corner-to-corner traverse on seeded terrain and return summary metrics."""
     grid = generate(size, seed)
     path, cost = plan(grid, (0, 0), (size - 1, size - 1))
     return {"distance_m": round((len(path) - 1) * 0.05, 2), "cells": len(path), "mobility_cost": round(cost, 2)}
 
 
 def main() -> None:
+    """Parse CLI arguments and print the traverse summary."""
     parser = argparse.ArgumentParser(description="Run a simulated autonomous rover traverse.")
     parser.add_argument("--size", type=int, default=32)
     parser.add_argument("--seed", type=int, default=0)
