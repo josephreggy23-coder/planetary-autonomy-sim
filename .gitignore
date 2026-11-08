@@ -24,3 +24,5 @@ coverage.xml
 .env.*
 .tox/
 *.swp
+desktop.ini
+*~
