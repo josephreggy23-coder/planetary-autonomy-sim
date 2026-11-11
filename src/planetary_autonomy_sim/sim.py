@@ -16,8 +16,8 @@ def run(size: int, seed: int) -> dict:
 def main() -> None:
     """Parse CLI arguments and print the traverse summary."""
     parser = argparse.ArgumentParser(description="Run a simulated autonomous rover traverse.")
-    parser.add_argument("--size", type=int, default=32)
-    parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--size", type=int, default=32, help="width and height of the square terrain grid")
+    parser.add_argument("--seed", type=int, default=0, help="seed for the procedural roughness field")
     args = parser.parse_args()
     print(run(args.size, args.seed))
 

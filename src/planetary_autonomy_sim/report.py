@@ -97,9 +97,9 @@ def build_report(output_dir: Path, size: int = 64, seed: int = 5) -> dict:
 def main() -> None:
     """Parse CLI arguments and generate the benchmark report."""
     parser = argparse.ArgumentParser(description="Generate rover benchmark data and charts.")
-    parser.add_argument("--output", type=Path, default=Path("results/demo"))
-    parser.add_argument("--size", type=int, default=64)
-    parser.add_argument("--seed", type=int, default=5)
+    parser.add_argument("--output", type=Path, default=Path("results/demo"), help="directory for the exported CSV, JSON, and SVG files")
+    parser.add_argument("--size", type=int, default=64, help="width and height of the square terrain grid")
+    parser.add_argument("--seed", type=int, default=5, help="seed for the procedural roughness field")
     args = parser.parse_args()
     print(json.dumps(build_report(args.output, args.size, args.seed), indent=2))
 
